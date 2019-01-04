@@ -64,7 +64,11 @@ public class ArrestSearchRequestProcessor extends RequestResponseProcessor imple
 		if (ArrestType.DA == arrestSearchRequest.getArrestType()) {
 			messageProcessor.setOperationName("SubmitDAChargesSearchRequest");
 		}
+		else {
+			messageProcessor.setOperationName("SubmitMunicipalChargesSearchRequest");
+		}
 		
+		log.info("Operation Name: " + messageProcessor.getOperationName()); 
 		//Create exchange
 		Exchange senderExchange = new DefaultExchange(camelContext, ExchangePattern.InOnly);
 		
